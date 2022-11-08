@@ -1,0 +1,12 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+
+@media (max-widht: 768px) {
+    .header {
+        flex-direction: column;
+        height: auto;
+    }
+
+}
