@@ -1,5 +1,9 @@
+import Layout from "../../components/Layout";
+
 export default function GamesPage() {
   return (
-    <div>index</div>
+    <div>
+        <Layout/>
+    </div>
   )
 }
