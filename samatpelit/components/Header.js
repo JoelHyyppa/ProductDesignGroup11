@@ -1,6 +1,7 @@
 import styles from "@/styles/header.module.css"
 import Logo from "./Logo"
 import Button from "./Button"
+import Search from "./Search"
 
 export default function Header() {
   return (
@@ -10,10 +11,7 @@ export default function Header() {
     <Button>Rekisteröidy</Button></div>
       <Logo />
       <h2>Virkistäytymispelejä kaikille opiskelijoille!</h2>
-      <p>
-        {" "}
-        <input class="searchBar" type="text" placeholder="Etsi peliä..." />{" "}
-      </p>
+      <Search />
     </header>
   )
 }
