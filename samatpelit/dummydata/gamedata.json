@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "name": "Hitler",
+    "desc": "Kaikille tuttu perinteinen hitler!",
+    "img": "https://cdn.britannica.com/58/129958-050-C3FE2DD2/Adolf-Hitler-1933.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Stalin",
+    "desc": "Kaikille tuntematon perinteinen Stalin!",
+    "img": "https://cdn.britannica.com/33/229033-050-73CE4FAB/Joseph-Stalin.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Lenin",
+    "desc": "Kaikille tuttu perinteinen Lenin!",
+    "img": "https://www.econlib.org/wp-content/uploads/2019/09/Depositphotos_11871805_s-2019.jpg"
+  }
+]
