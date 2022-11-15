@@ -6,7 +6,7 @@ export default function Header() {
   return (
     <header className={styles.header}>
     <div><Button>Kirjaudu</Button>
-    <Button>Pelit</Button>
+    <a href="/games"><Button>Pelit</Button></a>
     <Button>Rekisteröidy</Button></div>
       <Logo />
       <h2>Virkistäytymispelejä kaikille opiskelijoille!</h2>

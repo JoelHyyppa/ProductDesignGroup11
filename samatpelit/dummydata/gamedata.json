@@ -16,5 +16,11 @@
     "name": "Lenin",
     "desc": "Kaikille tuttu perinteinen Lenin!",
     "img": "https://www.econlib.org/wp-content/uploads/2019/09/Depositphotos_11871805_s-2019.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Truth or Dare",
+    "desc": "Totuutta ja tehtävää!",
+    "img": "https://play-lh.googleusercontent.com/LQcNl1xIrDicoBRAe-cn_1eUrPa8DK8aqjxbE-tRPJmrUYwuyj5DJ08Rr_M5J1eoKH2a"
   }
 ]
