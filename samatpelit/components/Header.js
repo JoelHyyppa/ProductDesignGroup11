@@ -6,9 +6,11 @@ import Search from "./Search"
 export default function Header() {
   return (
     <header className={styles.header}>
-    <div><Button>Kirjaudu</Button>
+    <div>
+    <a href="/account/login"><Button>Kirjaudu</Button></a>
     <a href="/games"><Button>Pelit</Button></a>
-    <Button>Rekisteröidy</Button></div>
+    <a href="/account/register"><Button>Rekisteröidy</Button></a>
+    </div>
       <Logo />
       <h2>Virkistäytymispelejä kaikille opiskelijoille!</h2>
       <Search />
