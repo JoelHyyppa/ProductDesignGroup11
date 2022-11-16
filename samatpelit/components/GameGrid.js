@@ -7,10 +7,11 @@ export default function GameGrid() {
   //Make list item for each gamelist item.
 
   const gameContent = gamesData.map((item) => (
-    <li className={styles.list}>
-      <h3>{item.name}</h3>
-      <img src={item.img} />
-      <h4>{item.desc}</h4>
+    <li className={styles.list} style={{ backgroundImage: `url(${item.img})` }}>
+      <div className={styles.infobox}>
+        <h3>{item.name}</h3>
+        <h4>{item.desc}</h4>
+      </div>
     </li>
   ))
 
@@ -20,3 +21,5 @@ export default function GameGrid() {
     </div>
   )
 }
+
+//<img src={item.img} />
