@@ -1,0 +1,54 @@
+.list li {
+  border-radius: 15px;
+  margin: 10px;
+  background-size: 100% 100%;
+  background-position: center;
+  width: 350px;
+  height: 350px;
+  border: 1px solid #777777;
+}
+
+.list li:hover {
+  border: 3px solid green;
+}
+
+.list li:hover .infobox {
+  height: 100px;
+  width: 344px;
+  top: 247px;
+}
+
+.list ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  list-style-type: none;
+}
+
+.infobox h3 {
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 28px;
+}
+
+.infobox h4 {
+  color: #ffffff;
+  font-weight: 400;
+}
+
+.list img {
+  height: 200px;
+  width: 200px;
+  opacity: 50%;
+}
+
+.infobox {
+  width: 348px;
+  height: 50px;
+  opacity: 80%;
+  background-color: #777777;
+  position: relative;
+  top: 299px;
+  border-radius: 0px 0px 15px 15px;
+  overflow: hidden;
+  text-align: center;
+}
