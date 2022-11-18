@@ -1,5 +1,6 @@
-.button {
+.variant-primary {
   background-color: green;
+  color: white;
   border: none;
   padding: 10px 10px;
   text-align: center;
@@ -8,6 +9,18 @@
   font-size: 16px;
 }
 
-.button:hover {
+.variant-secondary {
+  background-color: blue;
+  color: white;
+  border: none;
+  padding: 10px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.variant-primary:hover {
   border: 1px solid blue;
+  cursor: pointer;
 }

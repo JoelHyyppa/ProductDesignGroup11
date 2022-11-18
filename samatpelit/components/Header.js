@@ -2,9 +2,15 @@ import styles from "@/styles/Header.module.css"
 import Logo from "./Logo"
 import Button from "./Button"
 import Search from "./Search"
-import Link from "next/link"
+import { useRouter } from "next/router"
 
 export default function Header() {
+  const router = useRouter()
+
+  const handleClick = (destination) => {
+    router.push(destination)
+  }
+
   return (
     <header className={styles.header}>
       <Logo />
@@ -13,14 +19,14 @@ export default function Header() {
       <Search />
       <nav>
         <ul>
-          <Button>
-            <Link href="/games">Games</Link>
+          <Button type="button" onClick={() => handleClick("/games")}>
+            Games
           </Button>
-          <Button>
-            <Link href="/help">Help</Link>
+          <Button type="button" onClick={() => handleClick("/help")}>
+            Help
           </Button>
-          <Button>
-            <Link href="/profile">\o/</Link>
+          <Button type="button" onClick={() => handleClick("/profile")}>
+            \o/
           </Button>
         </ul>
       </nav>
