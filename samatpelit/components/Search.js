@@ -5,7 +5,7 @@ export default function Search() {
     <div className={styles.search}>
       <p>
         {" "}
-        <input class="searchBar" type="text" placeholder="Etsi peliä..." />{" "}
+        <input type="text" placeholder="Etsi peliä..." />{" "}
       </p>
     </div>
   )
