@@ -10,6 +10,7 @@ export default function GameGrid() {
 
   const gameContent = gamesData.map((item) => (
     <li
+      key={item.id}
       onClick={() => router.push("/games/" + item.id)}
       className={styles.list}
       style={{ backgroundImage: `url(${item.img})` }}
