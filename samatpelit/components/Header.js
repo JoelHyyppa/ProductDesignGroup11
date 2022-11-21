@@ -14,15 +14,9 @@ export default function Header() {
     router.push(destination)
   }
 
-export default function Header() {
   const [showModal, setShowModal] = useState(false)
   return (
     <header className={styles.header}>
-    <div>
-    
-    <a href="/games"><Button>Pelit</Button></a>
-    <a href="/account/register"><Button>Rekisteröidy</Button></a>
-      </div>
       <Logo />
 
       <h2>Virkistäytymispelejä kaikille opiskelijoille!</h2>
@@ -39,12 +33,12 @@ export default function Header() {
           <Button type="button" onClick={() => handleClick("/profile")}>
             \o/
           </Button>
-          <button onClick={() => setShowModal(true)}
-    className='btn-secondary btn-icon'>Kirjaudu</button>
+          <Button onClick={() => setShowModal(true)} type="button">
+            Kirjaudu
+          </Button>
         </ul>
       </nav>
-      <Modal show={showModal} onClose={() =>
-      setShowModal(false)}>
+      <Modal show={showModal} onClose={() => setShowModal(false)}>
         {LoginPage}
       </Modal>
     </header>
