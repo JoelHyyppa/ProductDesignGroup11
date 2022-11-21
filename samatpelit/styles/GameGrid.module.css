@@ -10,6 +10,7 @@
 
 .list li:hover {
   border: 3px solid green;
+  cursor: pointer;
 }
 
 .list li:hover .infobox {
