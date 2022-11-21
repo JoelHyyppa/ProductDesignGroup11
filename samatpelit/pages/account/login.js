@@ -15,7 +15,6 @@ export default function LoginPage() {
         console.log({email, password});
     }
   return (
-    <Layout title="Kirjaudu sisään">
         <div className={styles.auth}>
             <h1>
     <FaUser /> Kirjaudu
@@ -43,6 +42,5 @@ export default function LoginPage() {
             </form>
             <p><Link href='/account/register'>New user? Sign up by clicking!</Link></p>
         </div>
-    </Layout>
   )
 }
