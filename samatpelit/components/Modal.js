@@ -9,9 +9,6 @@ export default function Modal({ show, onClose, children, title }) {
   const [isBrowser, setIsBrowser] = useState(false)
   useEffect(() => setIsBrowser(true))
 
- const [isBrowser, setIsBrowser] = useState(false)
- useEffect(() => setIsBrowser(true)) 
-
  const modalContent = show ? (
     <div className={styles.modal}>
     <div className={styles.header}>

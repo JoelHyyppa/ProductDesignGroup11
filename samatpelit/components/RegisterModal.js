@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import ReactDOM from 'react-dom'
 import {FaTimes} from 'react-icons/fa'
 import RegisterPage from 'pages/account/register'
+import Button from './Button'
 
 export default function RegisterModal({show, onClose, children, title} ){
 
@@ -19,9 +20,9 @@ export default function RegisterModal({show, onClose, children, title} ){
  const modalContent = show ? (
     <div className={styles.modal}>
     <div className={styles.header}>
-        <a href="/" onClick={handleClose}>
-            <FaTimes />
-        </a>
+    <Button type="button" onClick={onClose}>
+          <FaTimes />
+        </Button>
     </div>
     {title && <div>{title}</div>}
     <div className={styles.body}><RegisterPage /></div>
