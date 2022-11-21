@@ -4,6 +4,8 @@ import Button from "./Button"
 import Search from "./Search"
 import LoginPage from "pages/account/login"
 import Modal from "./Modal"
+import RegisterModal from "./RegisterModal"
+import RegisterPage from "pages/account/register"
 import { useState } from "react"
 import { useRouter } from "next/router"
 
@@ -15,6 +17,8 @@ export default function Header() {
   }
 
   const [showModal, setShowModal] = useState(false)
+  const [showRegisterModal, setShowRegisterModal] = useState(false)
+
   return (
     <header className={styles.header}>
       <Logo />
@@ -36,11 +40,17 @@ export default function Header() {
           <Button onClick={() => setShowModal(true)} type="button">
             Kirjaudu
           </Button>
+          <Button onClick={() => setShowRegisterModal(true)} type="button">
+            Rekisteröidy
+          </Button>
         </ul>
       </nav>
       <Modal show={showModal} onClose={() => setShowModal(false)}>
         {LoginPage}
       </Modal>
+      <RegisterModal show={showRegisterModal} onClose={() => setShowRegisterModal(false)}>
+        {RegisterPage}
+      </RegisterModal>
     </header>
   )
 }

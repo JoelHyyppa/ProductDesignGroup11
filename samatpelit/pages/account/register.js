@@ -16,7 +16,6 @@ export default function RegisterPage() {
         console.log({username, email, password});
     }
   return (
-    <Layout title="Rekisteröidy">
         <div className={styles.auth}>
             <h1>
     <FaUser /> Rekisteröidy
@@ -52,6 +51,5 @@ export default function RegisterPage() {
                 <p><Link href='/account/login'>Already have an account? Click here!</Link></p>
             </form>
         </div>
-    </Layout>
   )
 }

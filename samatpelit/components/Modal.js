@@ -9,17 +9,13 @@ export default function Modal({ show, onClose, children, title }) {
   const [isBrowser, setIsBrowser] = useState(false)
   useEffect(() => setIsBrowser(true))
 
-  const handleClose = (event) => {
-    event.preventDefault()
-    {
-      onClose
-    }
-  }
+ const [isBrowser, setIsBrowser] = useState(false)
+ useEffect(() => setIsBrowser(true)) 
 
-  const modalContent = show ? (
+ const modalContent = show ? (
     <div className={styles.modal}>
-      <div className={styles.header}>
-        <Button type="button" onClick={onClose}>
+    <div className={styles.header}>
+    <Button type="button" onClick={onClose}>
           <FaTimes />
         </Button>
       </div>
