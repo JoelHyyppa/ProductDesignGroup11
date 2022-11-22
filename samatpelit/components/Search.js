@@ -8,7 +8,7 @@ export default function Search() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    router.push(`/games/search?term=${term}`)
+    router.push(`/games/search?id=${term}`)
     setTerm('')
   }
 
