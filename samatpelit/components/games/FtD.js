@@ -1,8 +1,7 @@
 import { useState } from "react"
-import Layout from "@/components/Layout"
 import scrambledDeck from "@/components/Deck"
 
-export default function App() {
+export default function FtD() {
   const [deck, setDeck] = useState([])
   const getDeck = () => {
     setDeck(scrambledDeck())
@@ -26,7 +25,6 @@ export default function App() {
 
   return (
     <div className="App">
-      <Layout />
       <button onClick={getDeck}>Nosta kortti</button>
       <p>{deck}</p>
       <ul>{card}</ul>
