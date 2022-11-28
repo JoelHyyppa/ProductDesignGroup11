@@ -7,15 +7,15 @@
   },
   {
     "id": 2,
-    "name": "Stalin",
-    "desc": "Kaikille tuntematon perinteinen Stalin!",
-    "img": "https://cdn.britannica.com/33/229033-050-73CE4FAB/Joseph-Stalin.jpg"
+    "name": "Bussikuski",
+    "desc": "Juotetaan vain yhtä ja kaikilla on kivaa!",
+    "img": "https://pbs.twimg.com/media/DdODLdJWAAEyg0r.jpg"
   },
   {
     "id": 3,
-    "name": "Lenin",
-    "desc": "Kaikille tuttu perinteinen Lenin!",
-    "img": "https://www.econlib.org/wp-content/uploads/2019/09/Depositphotos_11871805_s-2019.jpg"
+    "name": "Fuck the Dealer",
+    "desc": "Klassinen korttijuomapeli!",
+    "img": "https://www.wargamer.com/wp-content/sites/wargamer/2021/11/drinking-card-games-ride-the-bus.jpg"
   },
   {
     "id": "tod",
