@@ -1,54 +1,65 @@
 import styles from "@/styles/AuthForm.module.css"
 import Layout from "@/components/Layout"
-import { useState, useEffect, useContext } from "react"
+import { useRef } from "react"
 import { FaUser } from "react-icons/fa"
+import { useRouter } from "next/router"
 
 export default function index() {
-  const [name, setName] = useState("")
-  const [desc, setDesc] = useState("")
-  const [img, setImg] = useState("")
+  const nameInputRef = useRef()
+  const descInputRef = useRef()
+  const imgInputRef = useRef()
 
-  const handleSubmit = (e) => {
+  const router = useRouter()
+
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    console.log({ name, desc, img })
+
+    const enteredValues = {
+      name: nameInputRef.current.value,
+      desc: descInputRef.current.value,
+      img: imgInputRef.current.value,
+    }
+    console.log(enteredValues)
+
+    const res = await fetch("http://localhost:3000/api/dummy", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(enteredValues),
+    })
+
+    if (!res.ok) {
+      console.log("something went wrong")
+    } else {
+      router.push("/games")
+    }
   }
+
   return (
-    <div className={styles.auth}>
-      <h1>
-        <FaUser /> Rekisteröidy
-      </h1>
+    <Layout>
+      <div className={styles.auth}>
+        <h1>
+          <FaUser /> Add Games
+        </h1>
 
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="name">Game Name</label>
-          <input
-            type="text"
-            id="name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-        </div>
-        <div>
-          <label htmlFor="desc">Description</label>
-          <input
-            type="text"
-            id="desc"
-            value={desc}
-            onChange={(e) => setDesc(e.target.value)}
-          />
-        </div>
-        <div>
-          <label htmlFor="img">Image Link</label>
-          <input
-            type="test"
-            id="img"
-            value={img}
-            onChange={(e) => setImg(e.target.value)}
-          />
-        </div>
+        <form onSubmit={handleSubmit}>
+          <div>
+            <label htmlFor="name">Game Name</label>
+            <input type="text" id="name" ref={nameInputRef} />
+          </div>
+          <div>
+            <label htmlFor="desc">Description</label>
+            <input type="text" id="desc" ref={descInputRef} />
+          </div>
+          <div>
+            <label htmlFor="img">Image Link</label>
+            <input type="text" id="img" ref={imgInputRef} />
+          </div>
 
-        <input type="submit" value="Register" className="btn" />
-      </form>
-    </div>
+          <input type="submit" value="Submit" className="btn" />
+        </form>
+      </div>
+    </Layout>
   )
 }
