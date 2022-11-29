@@ -10,7 +10,7 @@ export default async function handler(req, res) {
     case "GET":
       try {
         const data = await dummy.find({})
-        res.status(200).json({ success: true, data })
+        res.status(200).json(data)
       } catch (error) {
         res.status(400).json({ success: false })
       }
@@ -19,7 +19,7 @@ export default async function handler(req, res) {
     case "POST":
       try {
         const data = await dummy.create(req.body)
-        res.status(201).json({ success: true, data: data })
+        res.status(201).json(data)
       } catch (error) {
         res.status(400).json({ success: false })
       }

@@ -1,19 +1,16 @@
+import useSWR from "swr"
 import { useRouter } from "next/router"
-import games from "../dummydata/gamedata.json"
 import styles from "@/styles/GameGrid.module.css"
-import { useState } from "react"
+
+const fetcher = (url) => fetch(url).then((res) => res.json())
 
 export default function GameGrid() {
-  const [data, setData] = useState([])
   const router = useRouter()
 
-  const getData = async () => {
-    const res = await fetch("http://localhost:3000/api/dummy")
-    const resjson = await res.json()
-    const data = resjson.data
-    setData(data)
-  }
-  //Make list item for each gamelist item.
+  const { data, error } = useSWR("/api/dummy", fetcher)
+
+  if (error) return <div> Failed to load </div>
+  if (!data) return <div> Loading... </div>
 
   const gameContent = data.map((item) => (
     <li
@@ -31,10 +28,7 @@ export default function GameGrid() {
 
   return (
     <div className={styles.list}>
-      <button onClick={getData}>click me</button>
       <ul>{gameContent}</ul>
     </div>
   )
 }
-
-//<img src={item.img} />
