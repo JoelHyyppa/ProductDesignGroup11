@@ -12,9 +12,9 @@
     "img": "https://pbs.twimg.com/media/DdODLdJWAAEyg0r.jpg"
   },
   {
-    "id": 3,
-    "name": "Fuck the Dealer",
-    "desc": "Klassinen korttijuomapeli!",
+    "id": "ftd",
+    "name": "Fuck the dealer",
+    "desc": "Sitä diileriä nussitaan vikisemättä",
     "img": "https://www.wargamer.com/wp-content/sites/wargamer/2021/11/drinking-card-games-ride-the-bus.jpg"
   },
   {
