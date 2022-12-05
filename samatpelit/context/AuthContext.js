@@ -14,7 +14,7 @@ const register = async (user) => {
 }
 
 //login user
-const login = async ({email:identifier, password}) =>
+const login = async ({ email:identifier, password }) =>
 {
     console.log({ identifier, password });
 }
