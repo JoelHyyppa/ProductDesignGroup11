@@ -8,8 +8,11 @@ import RegisterModal from "./RegisterModal"
 import RegisterPage from "pages/account/register"
 import { useState } from "react"
 import { useRouter } from "next/router"
+import AuthContext from "@/context/AuthContext"
+import { useContext } from "react"
 
 export default function Header() {
+  const {user, logout} = useContext(AuthContext)
   const router = useRouter()
 
   const handleClick = (destination) => {
@@ -37,11 +40,18 @@ export default function Header() {
           <Button type="button" onClick={() => handleClick("/profile")}>
             \o/
           </Button>
-          <Button onClick={() => setShowModal(true)} type="button">
-            Kirjaudu
+          {user ?
+          //If logged in
+           <>
+           <Button onClick={() => logout()}>
+            Kirjaudu ulos
           </Button>
+          </> : <></>}
           <Button onClick={() => setShowRegisterModal(true)} type="button">
             Rekisteröidy
+          </Button>
+          <Button onClick={() => setShowModal(true)} type="button">
+            Kirjaudu
           </Button>
         </ul>
       </nav>
