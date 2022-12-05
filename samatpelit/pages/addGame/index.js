@@ -1,4 +1,4 @@
-import styles from "@/styles/AuthForm.module.css"
+import styles from "@/styles/AddGames.module.css"
 import Layout from "@/components/Layout"
 import { useRef } from "react"
 import { FaUser } from "react-icons/fa"
@@ -21,7 +21,7 @@ export default function index() {
     }
     console.log(enteredValues)
 
-    const res = await fetch("http://localhost:3000/api/dummy", {
+    const res = await fetch("http://localhost:3000/api/game", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -38,27 +38,36 @@ export default function index() {
 
   return (
     <Layout>
-      <div className={styles.auth}>
-        <h1>
-          <FaUser /> Add Games
-        </h1>
+      <div className={styles.container}>
+        <>
+          <h1>
+            <FaUser /> Add Games
+          </h1>
 
-        <form onSubmit={handleSubmit}>
-          <div>
-            <label htmlFor="name">Game Name</label>
-            <input type="text" id="name" ref={nameInputRef} />
-          </div>
-          <div>
-            <label htmlFor="desc">Description</label>
-            <input type="text" id="desc" ref={descInputRef} />
-          </div>
-          <div>
-            <label htmlFor="img">Image Link</label>
-            <input type="text" id="img" ref={imgInputRef} />
-          </div>
+          <form onSubmit={handleSubmit}>
+            <div>
+              <label htmlFor="name">Game Name</label>
+              <input type="text" id="name" ref={nameInputRef} />
+            </div>
+            <div>
+              <label htmlFor="desc">Description</label>
+              <input type="text" id="desc" ref={descInputRef} />
+            </div>
+            <div>
+              <label htmlFor="img">Image Link</label>
+              <input type="text" id="img" ref={imgInputRef} />
+            </div>
 
-          <input type="submit" value="Submit" className="btn" />
-        </form>
+            <input type="submit" value="Submit" className="btn" />
+          </form>
+        </>
+        <aside>
+          <ul>
+            <li>a</li>
+            <li>s</li>
+            <li>d</li>
+          </ul>
+        </aside>
       </div>
     </Layout>
   )
