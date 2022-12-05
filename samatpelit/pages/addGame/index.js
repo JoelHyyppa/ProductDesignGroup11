@@ -1,15 +1,17 @@
 import styles from "@/styles/AddGames.module.css"
 import Layout from "@/components/Layout"
-import { useRef } from "react"
+import { useState, useRef } from "react"
 import { FaUser } from "react-icons/fa"
 import { useRouter } from "next/router"
 
-export default function index() {
+export default function index({ data }) {
   const nameInputRef = useRef()
   const descInputRef = useRef()
   const imgInputRef = useRef()
 
   const router = useRouter()
+
+  const [selectedCards, setSelectedCards] = useState([])
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -21,7 +23,7 @@ export default function index() {
     }
     console.log(enteredValues)
 
-    const res = await fetch("http://localhost:3000/api/game", {
+    const res = await fetch("http://localhost:3000/api/games", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -36,10 +38,20 @@ export default function index() {
     }
   }
 
+  function handleAddCard(card) {
+    setSelectedCards((current) => [...current, card])
+  }
+
+  const cardItems = data.map((card) => (
+    <li key={card._id} onClick={() => handleAddCard(card)}>
+      {card.content}
+    </li>
+  ))
+
   return (
     <Layout>
       <div className={styles.container}>
-        <>
+        <div className={styles.inputs}>
           <h1>
             <FaUser /> Add Games
           </h1>
@@ -60,15 +72,27 @@ export default function index() {
 
             <input type="submit" value="Submit" className="btn" />
           </form>
-        </>
-        <aside>
-          <ul>
-            <li>a</li>
-            <li>s</li>
-            <li>d</li>
+        </div>
+
+        <div className={styles.cardSelectContainer}>
+          <ul className={styles.cardList}>
+            {selectedCards.map((card) => (
+              <li key={card._id}> {card.content} </li>
+            ))}
           </ul>
-        </aside>
+        </div>
+
+        <div className={styles.cardSelectContainer}>
+          <ul className={styles.cardList}>{cardItems}</ul>
+        </div>
       </div>
     </Layout>
   )
+}
+
+export async function getServerSideProps() {
+  const res = await fetch("http://localhost:3000/api/card")
+  const data = await res.json()
+
+  return { props: { data } }
 }
