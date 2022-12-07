@@ -68,14 +68,23 @@ export default function App() {
     const number = Math.floor(Math.random() * dareOrTruth.length);
     setNumber(number);
   };
+
+  const [isTextHidden, setTextHidden] = useState(false);
+  const [hidden, setHidden] = useState(false);
+
+  const onClick = () => setTextHidden(!isTextHidden);
+  const onClicked = () => setHidden(!hidden);
+
   return (
     <div className="App">
               <Layout />
       <div>Jos et halua vastata kysymykseen tai tehdä tehtävää, joudut ottamaan pitkän hörpyn!</div>
-      <Button onClick={generate}>Totuus</Button>
-      <h2>{truthOrDare[index] && truthOrDare[index].truth}</h2>
-      <Button onClick={generator}>Tehtävä</Button>
-      <h2>{dareOrTruth[number] && dareOrTruth[number].dare}</h2>
+      <div><Button onClick={generate}>Totuus</Button></div>
+      {!isTextHidden ? <h2>{truthOrDare[index] && truthOrDare[index].truth}</h2> : null}
+      <div><Button onClick={generator}>Tehtävä</Button></div>
+      {!hidden ? <h2>{dareOrTruth[number] && dareOrTruth[number].dare}</h2> : null}
+      <div><Button onClick={onClick}>{isTextHidden ? 'Näytä seuraava totuus' : 'Piilota totuus'}</Button></div>
+      <div><Button onClick={onClicked}>{hidden ? 'Näytä seuraava tehtävä' : 'Piilota tehtävä'}</Button></div>
     </div>
   );
 }
