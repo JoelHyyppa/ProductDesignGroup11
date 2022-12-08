@@ -7,7 +7,7 @@ const fetcher = (url) => fetch(url).then((res) => res.json())
 export default function GameGrid() {
   const router = useRouter()
 
-  const { data, error } = useSWR("/api/dummy", fetcher)
+  const { data, error } = useSWR("/api/games", fetcher)
 
   if (error) return <div> Failed to load </div>
   if (!data) return <div> Loading... </div>
