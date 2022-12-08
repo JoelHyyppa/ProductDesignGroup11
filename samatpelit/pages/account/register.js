@@ -2,7 +2,6 @@ import {FaUser} from 'react-icons/fa'
 import { ToastContainer, toast} from 'react-toastify'
 import { useState, useEffect, useContext } from 'react'
 import Link from 'next/link'
-import Layout from '@/components/Layout'
 import 'react-toastify/dist/ReactToastify.css'
 import styles from '@/styles/AuthForm.module.css'
 
