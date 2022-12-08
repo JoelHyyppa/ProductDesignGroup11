@@ -1,0 +1,62 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    align-content: space-between;
+}
+
+.inputs {
+    display: block;
+    width: 500px;
+    box-shadow: 0px 10px 20px 0px rgba(50, 50, 50, 0.52);
+    margin:auto;
+    padding: 30px;
+}
+
+.inputs input {
+    display: block;
+    width: 400px;
+    height: 40px;
+    padding: 5px;
+    font-size: 18px;
+}
+
+.container div {
+    margin-bottom: 20px;
+}
+
+.cardSelectContainer{
+    display: block;
+    width: 500px;
+    height: 100%;
+    box-shadow: 0px 10px 20px 0px rgba(50, 50, 50, 0.52);
+    margin:auto;
+    padding: 30px;
+}
+
+.cardList {
+    
+}
+
+.cardList li {
+    display: inline-block;
+    background-color: rgb(44, 44, 44);
+    border: 1px solid white;
+    border-radius: 5px;
+    margin: 2px;
+    padding: 5px;
+}
+
+.cardList li:hover{
+    border: 2px solid cyan;
+    cursor: pointer;
+}
+
+.listCards {
+    display: block;
+    width: 500px;
+    height: 100%;
+    box-shadow: 0px 10px 20px 0px rgba(50, 50, 50, 0.52);
+    margin:auto;
+    padding: 30px;
+    
+}
