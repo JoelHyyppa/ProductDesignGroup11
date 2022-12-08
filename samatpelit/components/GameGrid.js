@@ -1,17 +1,21 @@
+import useSWR from "swr"
 import { useRouter } from "next/router"
-import games from "../dummydata/gamedata.json"
 import styles from "@/styles/GameGrid.module.css"
 
+const fetcher = (url) => fetch(url).then((res) => res.json())
+
 export default function GameGrid() {
-  const gamesData = games
   const router = useRouter()
 
-  //Make list item for each gamelist item.
+  const { data, error } = useSWR("/api/games", fetcher)
 
-  const gameContent = gamesData.map((item) => (
+  if (error) return <div> Failed to load </div>
+  if (!data) return <div> Loading... </div>
+
+  const gameContent = data.map((item) => (
     <li
-      key={item.id}
-      onClick={() => router.push("/games/" + item.id)}
+      key={item.name}
+      onClick={() => router.push("/games/" + item.name)}
       className={styles.list}
       style={{ backgroundImage: `url(${item.img})` }}
     >
@@ -28,5 +32,3 @@ export default function GameGrid() {
     </div>
   )
 }
-
-//<img src={item.img} />
