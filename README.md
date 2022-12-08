@@ -3,7 +3,7 @@ This is repository for our project: Samat Pelit
 Instructions:
 
 Enviromental variables:
-Create file named ".env.local" under directory "samatpelit". enc.local has following variables:
+Create file named `.env.local` under directory `/samatpelit`. created file should have following variables:
 `MONGO_URI="<Your mongo connect uri here>"`
 
 Navigate to directory: samatpelit
