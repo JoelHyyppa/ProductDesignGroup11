@@ -11,6 +11,7 @@ export default function index({ data }) {
 
   const router = useRouter()
 
+  const [cards, setCards] = useState(data)
   const [selectedCards, setSelectedCards] = useState([])
 
   const handleSubmit = async (e) => {
@@ -40,9 +41,15 @@ export default function index({ data }) {
 
   function handleAddCard(card) {
     setSelectedCards((current) => [...current, card])
+    setCards((cur) => cur.filter((e) => e._id != card._id))
   }
 
-  const cardItems = data.map((card) => (
+  function handleRemoveCard(card) {
+    setCards((current) => [...current, card])
+    setSelectedCards((cur) => cur.filter((e) => e._id != card._id))
+  }
+
+  const cardItems = cards.map((card) => (
     <li key={card._id} onClick={() => handleAddCard(card)}>
       {card.content}
     </li>
@@ -77,7 +84,10 @@ export default function index({ data }) {
         <div className={styles.cardSelectContainer}>
           <ul className={styles.cardList}>
             {selectedCards.map((card) => (
-              <li key={card._id}> {card.content} </li>
+              <li key={card._id} onClick={() => handleRemoveCard(card)}>
+                {" "}
+                {card.content}{" "}
+              </li>
             ))}
           </ul>
         </div>
