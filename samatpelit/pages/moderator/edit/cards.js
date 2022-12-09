@@ -1,7 +1,7 @@
 import Layout from "@/components/Layout"
 import Button from "@/components/Button"
 import styles from "@/styles/AddGames.module.css"
-import { FaEdit, FaRegTimesCircle, FaUser } from "react-icons/fa"
+import { FaEdit, FaRegTimesCircle } from "react-icons/fa"
 import { useState } from "react"
 import { useRouter } from "next/navigation"
 
@@ -36,10 +36,6 @@ export default function cards({ data }) {
         setSelected()
         router.refresh()
       }
-
-      //console.log("Card with ID: " + selected._id)
-      //console.log("New content: " + content)
-      //console.log("New linkedCard: " + linkedCard)
     }
   }
 

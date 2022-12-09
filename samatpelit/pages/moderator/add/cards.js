@@ -1,8 +1,8 @@
 import styles from "@/styles/AddGames.module.css"
 import Layout from "@/components/Layout"
 import { useRef } from "react"
-import { FaUser } from "react-icons/fa"
-import { useRouter } from "next/router"
+import { FaEdit, FaUser } from "react-icons/fa"
+import { useRouter } from "next/navigation"
 
 import React from "react"
 import Button from "@/components/Button"
@@ -32,7 +32,7 @@ export default function cards({ data }) {
     if (!res.ok) {
       console.log("something went wrong")
     } else {
-      router.push("/add")
+      router.refresh()
     }
   }
 
@@ -66,7 +66,7 @@ export default function cards({ data }) {
   const leftBox = (
     <div className={styles.inputs}>
       <h1>
-        <FaUser /> Add Cards
+        <FaEdit /> Add Cards
       </h1>
       {form}
     </div>

@@ -2,7 +2,7 @@ import styles from "@/styles/AddGames.module.css"
 import Button from "@/components/Button"
 import Layout from "@/components/Layout"
 import { useState, useRef } from "react"
-import { FaUser } from "react-icons/fa"
+import { FaEdit, FaUser } from "react-icons/fa"
 import { useRouter } from "next/router"
 
 export default function index({ data }) {
@@ -39,7 +39,7 @@ export default function index({ data }) {
     if (!res.ok) {
       console.log("something went wrong")
     } else {
-      router.push("/games")
+      router.push("/moderator")
     }
   }
 
@@ -106,7 +106,7 @@ export default function index({ data }) {
   const leftBox = (
     <div className={styles.inputs}>
       <h1>
-        <FaUser /> Add Games
+        <FaEdit /> Add Games
       </h1>
       {form}
     </div>
