@@ -25,15 +25,21 @@ export default async function handler(req, res) {
       }
       break
 
-    case "update":
+    case "PUT":
       try {
+        const data = await card.findOneAndUpdate(
+          req.body.filter,
+          req.body.update,
+          { new: true }
+        )
+        res.status(200).json(data)
       } catch (err) {
         res.status(400).json(err)
       }
       break
 
     default:
-      res.status(400).json({ success: false })
+      res.status(400).json("Not a request")
       break
   }
 }

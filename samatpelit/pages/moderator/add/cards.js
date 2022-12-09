@@ -1,8 +1,8 @@
 import styles from "@/styles/AddGames.module.css"
 import Layout from "@/components/Layout"
-import { useState, useRef } from "react"
+import { useRef } from "react"
 import { FaUser } from "react-icons/fa"
-import Router, { useRouter } from "next/router"
+import { useRouter } from "next/router"
 
 import React from "react"
 import Button from "@/components/Button"
