@@ -12,19 +12,57 @@ export default function cards({ data }) {
   const [content, setContent] = useState("")
   const [linkedCard, setLinkedCard] = useState("")
 
-  const handleSubmit = (e) => {
+  //function to handle submit
+  const handleSubmit = async (e) => {
     e.preventDefault()
     if (!selected) {
+      console.log("no card selected")
     } else {
-      console.log("Card with ID: " + selected._id)
-      console.log("New content: " + content)
-      console.log("New linkedCard: " + linkedCard)
-      setContent("")
-      setLinkedCard("")
-      setSelected()
+      const data = {
+        filter: { _id: selected._id },
+        update: { content: content, linkedCard: linkedCard },
+      }
+      const res = await fetch("http://localhost:3000/api/card", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      })
+
+      if (!res.ok) {
+        console.log("something went wrong")
+      } else {
+        setContent("")
+        setLinkedCard("")
+        setSelected()
+        router.refresh()
+      }
+
+      //console.log("Card with ID: " + selected._id)
+      //console.log("New content: " + content)
+      //console.log("New linkedCard: " + linkedCard)
     }
   }
 
+  //function to handle delete
+  const deleteCard = async (card) => {
+    console.log(card._id + "  deleted")
+
+    const data = { filter: { _id: card._id } }
+    const res = await fetch("http://localhost:3000/api/card", {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    })
+
+    if (!res.ok) {
+      console.log("smth went wrong")
+    } else {
+      console.log("ok")
+      router.refresh()
+    }
+  }
+
+  //Form to edit card
   const form = (
     <form onSubmit={handleSubmit}>
       <div>
@@ -54,6 +92,7 @@ export default function cards({ data }) {
     </form>
   )
 
+  //Left container to contain form
   const leftBox = (
     <div className={styles.inputs}>
       <h1>
@@ -63,6 +102,7 @@ export default function cards({ data }) {
     </div>
   )
 
+  //Right container to contain all cards
   const rightBox = (
     <div className={styles.listCards}>
       <h1>All current cards</h1>
@@ -80,28 +120,11 @@ export default function cards({ data }) {
     </div>
   )
 
+  //function to handle card selection
   function handleCardSelect(card) {
     setSelected(card)
     setContent(card.content)
     setLinkedCard(card.linkedCard)
-  }
-
-  const deleteCard = async (card) => {
-    console.log(card._id + "  deleted")
-
-    const filter = { filter: { _id: card._id } }
-    const res = await fetch("http://localhost:3000/api/card", {
-      method: "DELETE",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ filter: { _id: card._id } }),
-    })
-
-    if (!res.ok) {
-      console.log("smth went wrong")
-    } else {
-      console.log("ok")
-      router.refresh()
-    }
   }
 
   return (
@@ -115,6 +138,7 @@ export default function cards({ data }) {
   )
 }
 
+//fetch all cards from database
 export async function getServerSideProps() {
   const res = await fetch("http://localhost:3000/api/card")
   const data = await res.json()
