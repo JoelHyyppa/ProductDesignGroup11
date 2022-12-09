@@ -3,8 +3,11 @@ import Button from "@/components/Button"
 import styles from "@/styles/AddGames.module.css"
 import { FaEdit, FaRegTimesCircle, FaUser } from "react-icons/fa"
 import { useState } from "react"
+import { useRouter } from "next/navigation"
 
 export default function cards({ data }) {
+  const router = useRouter()
+
   const [selected, setSelected] = useState()
   const [content, setContent] = useState("")
   const [linkedCard, setLinkedCard] = useState("")
@@ -83,8 +86,22 @@ export default function cards({ data }) {
     setLinkedCard(card.linkedCard)
   }
 
-  function deleteCard(card) {
+  const deleteCard = async (card) => {
     console.log(card._id + "  deleted")
+
+    const filter = { filter: { _id: card._id } }
+    const res = await fetch("http://localhost:3000/api/card", {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ filter: { _id: card._id } }),
+    })
+
+    if (!res.ok) {
+      console.log("smth went wrong")
+    } else {
+      console.log("ok")
+      router.refresh()
+    }
   }
 
   return (

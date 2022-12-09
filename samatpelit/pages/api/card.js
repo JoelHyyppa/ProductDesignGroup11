@@ -38,6 +38,14 @@ export default async function handler(req, res) {
       }
       break
 
+    case "DELETE":
+      try {
+        const data = await card.deleteOne(req.body.filter)
+        res.status(200).json(data)
+      } catch (err) {
+        res.status(400).json(err)
+      }
+
     default:
       res.status(400).json("Not a request")
       break
