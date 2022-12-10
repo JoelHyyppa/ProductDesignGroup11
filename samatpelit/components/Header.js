@@ -61,11 +61,11 @@ export function Component() {
     console.log("Signed in")
     return <>
       Signed in as {session.user.email} <br/>
-      <ul><button onClick={() => signOut()}>Sign out</button></ul>
+      <ul><Button onClick={() => signOut()}>Sign out</Button></ul>
     </>
   }
   return <>
     Not signed in <br/>
-    <ul><button onClick={() => signIn()}>Sign in</button></ul>
+    <ul><Button onClick={() => signIn()}>Sign in</Button></ul>
   </>
 }

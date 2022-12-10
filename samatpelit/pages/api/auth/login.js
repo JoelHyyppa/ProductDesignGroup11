@@ -11,7 +11,7 @@ export default function LoginPage() {
     const [password, setPassword] = useState('')
     const handleSubmit = e => {
         e.preventDefault()
-        console.log({username, password});
+        console.log({"Credentials": username, password});
     }
   return (
         <div className={styles.auth}>
