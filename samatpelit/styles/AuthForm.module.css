@@ -11,7 +11,7 @@
 }
 
 .auth input[type='text'],
-.auth input[type='email'],
+.auth input[type='username'],
 .auth input[type='password'] {
     display: block;
     width: 100%;

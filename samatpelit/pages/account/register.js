@@ -5,14 +5,12 @@ import Link from 'next/link'
 import 'react-toastify/dist/ReactToastify.css'
 import styles from '@/styles/AuthForm.module.css'
 
-
 export default function RegisterPage() {
-    const [email, setEmail] = useState('')
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const handleSubmit = e => {
         e.preventDefault()
-        console.log({username, email, password});
+        console.log({username, password});
     }
   return (
         <div className={styles.auth}>
@@ -22,26 +20,16 @@ export default function RegisterPage() {
             <ToastContainer />
             <form onSubmit={handleSubmit}>
                 <div>
-                    <label htmlFor="email">Email Address</label>
+                    <label>Username</label>
                     <input
-                     type="email" 
-                     id="email" 
-                     value={email} 
-                    onChange={(e) => setEmail(e.target.value)}/>
-                </div>
-                <div>
-                    <label htmlFor="username">Username</label>
-                    <input
-                     type="text" 
-                     id="username" 
+                     type="username" name="username" 
                      value={username} 
                     onChange={(e) => setUsername(e.target.value)}/>
                 </div>
                 <div>
-                    <label htmlFor="password">Password</label>
+                    <label>Password</label>
                     <input
-                     type="password" 
-                     id="password" 
+                     type="password" name="password" 
                      value={password} 
                     onChange={(e) => setPassword(e.target.value)}/>
                 </div>

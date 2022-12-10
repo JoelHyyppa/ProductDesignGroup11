@@ -1,5 +1,5 @@
 import styles from "@/styles/Modal.module.css"
-import LoginPage from "pages/account/login"
+import LoginPage from "pages/api/auth/login"
 import { useState, useEffect } from "react"
 import ReactDOM from "react-dom"
 import { FaTimes } from "react-icons/fa"

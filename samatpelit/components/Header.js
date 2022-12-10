@@ -2,16 +2,16 @@ import styles from "@/styles/Header.module.css"
 import Logo from "./Logo"
 import Button from "./Button"
 import Search from "./Search"
-import LoginPage from "pages/account/login"
+import LoginPage from "pages/api/auth/login"
 import Modal from "./Modal"
 import RegisterModal from "./RegisterModal"
 import RegisterPage from "pages/account/register"
 import { useState } from "react"
 import { useRouter } from "next/router"
+import { useSession, signIn, signOut } from "next-auth/react"
 
 export default function Header() {
   const router = useRouter()
-
   const handleClick = (destination) => {
     router.push(destination)
   }
@@ -53,4 +53,19 @@ export default function Header() {
       </RegisterModal>
     </header>
   )
+}
+
+export function Component() {
+  const { data: session } = useSession()
+  if(session) {
+    console.log("Signed in")
+    return <>
+      Signed in as {session.user.email} <br/>
+      <ul><button onClick={() => signOut()}>Sign out</button></ul>
+    </>
+  }
+  return <>
+    Not signed in <br/>
+    <ul><button onClick={() => signIn()}>Sign in</button></ul>
+  </>
 }
