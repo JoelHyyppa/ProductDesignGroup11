@@ -43,6 +43,9 @@ export default function Header() {
           <Button onClick={() => setShowRegisterModal(true)} type="button">
             Rekisteröidy
           </Button>
+          <Button type="button" onClick={() => handleClick("/api/auth/signin")}>
+            Kirjaudu
+          </Button>
         </ul>
       </nav>
       <Modal show={showModal} onClose={() => setShowModal(false)}>
@@ -60,7 +63,7 @@ export function Component() {
   if(session) {
     console.log("Signed in")
     return <>
-      Signed in as {session.user.email} <br/>
+      Signed in as {session.user.username} <br/>
       <ul><Button onClick={() => signOut()}>Sign out</Button></ul>
     </>
   }
