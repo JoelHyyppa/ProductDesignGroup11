@@ -14,7 +14,7 @@ export default function GameGrid({ onClick }) {
 
   function handleClick(item) {
     if (!onClick) {
-      router.push("/games/" + item.name)
+      router.push("/games/" + item._id)
     } else {
       onClick(item)
     }

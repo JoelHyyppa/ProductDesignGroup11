@@ -24,7 +24,7 @@ export default function FtD() {
   const card = deck.map((item) => <li key={item}>{item}</li>)
 
   return (
-    <div className="App">
+    <div>
       <button onClick={getDeck}>Nosta kortti</button>
       <p>{deck}</p>
       <ul>{card}</ul>
