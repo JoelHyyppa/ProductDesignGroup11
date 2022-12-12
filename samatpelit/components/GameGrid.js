@@ -4,7 +4,7 @@ import styles from "@/styles/GameGrid.module.css"
 
 const fetcher = (url) => fetch(url).then((res) => res.json())
 
-export default function GameGrid() {
+export default function GameGrid({ onClick }) {
   const router = useRouter()
 
   const { data, error } = useSWR("/api/games", fetcher)
@@ -12,10 +12,18 @@ export default function GameGrid() {
   if (error) return <div> Failed to load </div>
   if (!data) return <div> Loading... </div>
 
+  function handleClick(item) {
+    if (!onClick) {
+      router.push("/games/" + item.name)
+    } else {
+      onClick(item)
+    }
+  }
+
   const gameContent = data.map((item) => (
     <li
       key={item.name}
-      onClick={() => router.push("/games/" + item.name)}
+      onClick={() => handleClick(item)}
       className={styles.list}
       style={{ backgroundImage: `url(${item.img})` }}
     >
