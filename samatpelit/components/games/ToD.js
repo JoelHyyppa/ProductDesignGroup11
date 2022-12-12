@@ -1,5 +1,4 @@
 import { useState } from "react"
-import Layout from "@/components/Layout"
 import Button from "@/components/Button"
 
 const truthOrDare = [
@@ -72,7 +71,7 @@ const dareOrTruth = [
   },
 ]
 
-export default function Tod() {
+export default function ToD() {
   const [index, setIndex] = useState()
   const [number, setNumber] = useState()
   const generate = () => {
@@ -96,8 +95,7 @@ export default function Tod() {
   const onClicked = () => setHidden(!hidden)
 
   return (
-    <div className="App">
-      <Layout />
+    <div>
       <div>
         Jos et halua vastata kysymykseen tai tehdä tehtävää, joudut ottamaan
         pitkän hörpyn!
