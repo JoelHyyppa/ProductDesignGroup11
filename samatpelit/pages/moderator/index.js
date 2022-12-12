@@ -18,6 +18,9 @@ export default function index() {
         <Button onClick={() => router.push("moderator/edit/cards")}>
           Edit/Delete Cards
         </Button>
+        <Button onClick={() => router.push("moderator/edit/games")}>
+          Edit/Delete Games
+        </Button>
       </div>
     </Layout>
   )
