@@ -70,21 +70,32 @@ export default function App() {
   };
 
   const [isTextHidden, setTextHidden] = useState(false);
-  const [hidden, setHidden] = useState(false);
 
   const onClick = () => setTextHidden(!isTextHidden);
-  const onClicked = () => setHidden(!hidden);
 
   return (
     <div className="App">
               <Layout />
-      <div>Jos et halua vastata kysymykseen tai tehdä tehtävää, joudut ottamaan pitkän hörpyn!</div>
-      <div><Button onClick={generate}>Totuus</Button></div>
+      <div><Button variant="tod" onClick={generate}>Totuus</Button></div>
       {!isTextHidden ? <h2>{truthOrDare[index] && truthOrDare[index].truth}</h2> : null}
-      <div><Button onClick={generator}>Tehtävä</Button></div>
-      {!hidden ? <h2>{dareOrTruth[number] && dareOrTruth[number].dare}</h2> : null}
-      <div><Button onClick={onClick}>{isTextHidden ? 'Näytä seuraava totuus' : 'Piilota totuus'}</Button></div>
-      <div><Button onClick={onClicked}>{hidden ? 'Näytä seuraava tehtävä' : 'Piilota tehtävä'}</Button></div>
+      <div><Button variant="tod" onClick={generator}>Tehtävä</Button></div>
+      {!isTextHidden ? <h2>{dareOrTruth[number] && dareOrTruth[number].dare}</h2> : null}
+      <div><Button variant="next" onClick={onClick}>{isTextHidden ? 'Next' : 'Piilota'}</Button></div>
+
+      <h1>HOW TO PLAY</h1>
+      <li>
+        Next-nappia painettaessa vaihtuu vuoro.
+        Kysymykset näkyvät pelaajille Next-nappia painamalla.
+      </li>
+      <li>
+        Ennen kun painetaan Next, pelaaja päättää, haluaako ottaa totuuden vai tehtävän. Tieto päivittyy vaikka sitä ei vielä näkyisikään.
+      </li>
+      <li>
+        Jos pelaaja ei suostu tekemään tehtävää tai kertomaan totuutta, joutuu hän ottamaan kolme huikkaa.
+      </li>
+      <li>
+        Vuoro päättyy, kun pelaaja painaa "Piilota."
+      </li>
     </div>
   );
 }
