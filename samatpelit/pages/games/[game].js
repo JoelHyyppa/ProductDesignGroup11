@@ -5,6 +5,7 @@ import Button from "@/components/Button"
 import ToD from "@/components/games/ToD"
 import FtD from "@/components/games/FtD"
 import styles from "@/styles/GamePage.module.css"
+import Giggolo from "@/components/games/Giggolo"
 
 export default function GamePage() {
   const router = useRouter()
@@ -20,6 +21,12 @@ export default function GamePage() {
   const [gameState, setGameState] = useState(0)
 
   const [renderedGame, setRenderedGame] = useState()
+
+  function resetGameState() {
+    setRenderedGame("")
+    setGameState(0)
+  }
+
   useEffect(() => {
     console.log("USE EFFECT")
     if (game != undefined) {
@@ -36,18 +43,19 @@ export default function GamePage() {
           </>
         )
       }
-      switch (game._id) {
-        case "63973fa2c00ec876633befd0":
-          setRenderedGame(<FtD />)
-          break
+      if (game.tod == false && gameState == 1) {
+        switch (game._id) {
+          case "63973fa2c00ec876633befd0":
+            setRenderedGame(<FtD />)
+            break
 
-        //Vaihda tästä FtD komponentti Hitler -komponentiksi!!!!
-        case "6392585582fa78fe059f108f":
-          setRenderedGame(<FtD />)
+          //Vaihda tästä FtD komponentti Hitler -komponentiksi!!!!
+          case "6392585582fa78fe059f108f":
+            setRenderedGame(<FtD />)
 
-          //nämä setRenderedGame() sisään!
+            //nämä setRenderedGame() sisään!
 
-          /*
+            /*
           <>
           <Button
               variant="delete"
@@ -59,10 +67,21 @@ export default function GamePage() {
           </>
           */
 
-          break
+            break
+          case "639358fc2604169f11f6668e":
+            setRenderedGame(
+              <div>
+                <Button variant="delete" onClick={() => resetGameState()}>
+                  Close Game
+                </Button>
+                <Giggolo game={game} />
+              </div>
+            )
+            break
 
-        default:
-          break
+          default:
+            break
+        }
       }
     }
   }, [gameState])
