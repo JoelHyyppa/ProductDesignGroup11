@@ -4,6 +4,7 @@ import Layout from "@/components/Layout"
 import Button from "@/components/Button"
 import ToD from "@/components/games/ToD"
 import FtD from "@/components/games/FtD"
+import Hitler from "@/components/games/Hitler"
 import styles from "@/styles/GamePage.module.css"
 import Giggolo from "@/components/games/Giggolo"
 
@@ -47,23 +48,18 @@ export default function GamePage() {
             setRenderedGame(<FtD />)
             break
 
-          //Vaihda tästä FtD komponentti Hitler -komponentiksi!!!!
-          case "6392585582fa78fe059f108f":
-            setRenderedGame(<FtD />)
 
-            //nämä setRenderedGame() sisään!
+        case "6392585582fa78fe059f108f":
+          setRenderedGame(<>
+            <Button
+                variant="delete"
+                onClick={() => setGameState(0) + setRenderedGame("")}
+              >
+                Close Game
+              </Button>
+            <Hitler game = {game}/>
+            </>)
 
-            /*
-          <>
-          <Button
-              variant="delete"
-              onClick={() => setGameState(0) + setRenderedGame("")}
-            >
-              Close Game
-            </Button>
-          <Hitler game = {game}/>
-          </>
-          */
 
             break
           case "639358fc2604169f11f6668e":
