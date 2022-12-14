@@ -47,10 +47,11 @@ export default function Hitler({game}) {
       <Button variant="hitler" onClick={getDeck}>Hae pakka</Button>
       <Button variant="hitler" onClick={getCardContent}>Hae tiedot</Button>
       <h1><Button variant="hitler2" onClick={drawCard}>Nosta kortti</Button></h1>
-      <p> <Image src={"/../../assets/custom_cards/"+currentCard+".svg"} width={164.8} height={260.8}/></p>
+      <p> <Image src={"/"+currentCard+".jpg"} width={239} height={335}/></p>
       <p>{currentCard}</p>
       <h1>{task}</h1>
       </div>
+    
     </body>
   )
 }
