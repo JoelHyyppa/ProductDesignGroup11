@@ -9,8 +9,14 @@ export default async function handler(req, res) {
   switch (method) {
     case "GET":
       try {
-        const data = await card.find({})
-        res.status(200).json(data)
+        if (req.query.id) {
+          console.log(req.query.id)
+          const data = await card.findOne({ _id: req.query.id })
+          res.status(200).json(data)
+        } else {
+          const data = await card.find({})
+          res.status(200).json(data)
+        }
       } catch (err) {
         res.status(400).json(err)
       }
