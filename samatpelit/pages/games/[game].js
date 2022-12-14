@@ -11,7 +11,6 @@ export default function GamePage() {
   const router = useRouter()
 
   useEffect(() => {
-    console.log("useEff")
     if (game == "") {
       getGameDetails()
     }
@@ -28,7 +27,6 @@ export default function GamePage() {
   }
 
   useEffect(() => {
-    console.log("USE EFFECT")
     if (game != undefined) {
       if (game.tod == true && gameState == 1) {
         setRenderedGame(
@@ -70,8 +68,12 @@ export default function GamePage() {
             break
           case "639358fc2604169f11f6668e":
             setRenderedGame(
-              <div>
-                <Button variant="delete" onClick={() => resetGameState()}>
+              <div className={styles.gameContainer}>
+                <Button
+                  className={styles.exitButton}
+                  variant="delete"
+                  onClick={() => resetGameState()}
+                >
                   Close Game
                 </Button>
                 <Giggolo game={game} />
