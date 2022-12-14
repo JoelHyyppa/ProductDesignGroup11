@@ -2,6 +2,7 @@ import { useState } from "react"
 import scrambledDeck from "@/components/Deck"
 import { fetchServerResponse } from "next/dist/client/components/app-router"
 import Button from "../Button"
+import Image from "next/image"
 
 export default function Hitler({game}) {
   const [deck, setDeck] = useState([])
@@ -14,42 +15,44 @@ export default function Hitler({game}) {
   function getDeck(){
     setDeck(scrambledDeck())
     setCurrentCardIndex(0)
+    console.log('Pakka haettu')
   }
-  /*const generate = () => {
-      //we run this generate function with a button
-      //inside this function, we call Math.random to generate a number between 0 and 1
-      //then we multiply that with truthOrDare.length and then round that down
-      //to the nearest integer with Math.floor to get the index
-      const index = 52;
-      setIndex(index);
-    };*/
 
-    //const card = deck.map((item) => <li key={item}>{item}</li>)
-
-     const getCardContent = async () => {
+     const getCardContent = async () => { //getting the data asynchronously from our db
         const res = await fetch("http://localhost:3000/api/card", {method: "GET", headers:{"Content-Type": "application/json",},})
         const data = await res.json()
         console.log(data)
+        console.log('Tiedot haettu')
         setAllCards(data)
     }
 
-    function drawCard(){
-        setCurrentCard(deck[currentCardIndex])
-        setCurrentCardIndex((current) => current+1) 
-        const c = allCards.find((e) => e.linkedCard == currentCard.slice(0,1))
+    function drawCard(){ //current card index is zero, we need a value between 0 and 1 for us to return
+        setCurrentCard(deck[currentCardIndex]) //haetaan seuraava kortti pakasta
+        setCurrentCardIndex((current) => current+1) //asetetaan seuraavalle kortille arvo
+        try {
+        const c = allCards.find((e) => e.linkedCard == currentCard.slice(0,1)) //tuodaan seuraava kortti
         console.log(c)
         console.log(currentCard.slice(0,1))
-        setTask(c.content)
+        setTask(c.content) }
+        catch {
+          alert('Korttipakka on tyhjä!')
+        } 
     }
-  
+
   return (
-    <div>
-      <Button onClick={getDeck}>Hae pakka</Button>
-      <Button onClick={drawCard}>Nosta kortti</Button>
-      <Button onClick={getCardContent}>Hae tiedot</Button>
+
+    <body>
+      <div>
+      <h2>Muista hakea ensin pakka ja korttitiedot!</h2>
+      <Button variant="hitler" onClick={getDeck}>Hae pakka</Button>
+      <Button variant="hitler" onClick={getCardContent}>Hae tiedot</Button>
+      <h1><Button variant="hitler2" onClick={drawCard}>Nosta kortti</Button></h1>
+      <p> <Image src={"/../../assets/custom_cards/"+currentCard+".svg"} width={164.8} height={260.8}/></p>
       <p>{currentCard}</p>
-      <p>{task}</p>
-    </div>
+      <h1>{task}</h1>
+      </div>
+    </body>
   )
 }
-//      <img src={"../../assets/custom_cards/"+currentCard+".svg"} />
+
+// <Image src={"../../assets/custom_cards/"+currentCard+".svg"} />
