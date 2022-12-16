@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react"
 import useSWR from "swr"
-import customSizeDeck from "@/components/Deck"
+import {customSizeDeck} from "@/components/Deck"
 import Button from "../Button"
 import styles from "@/styles/Giggolo.module.css"
+import { icons } from "react-icons"
 
 const fetcher = (url) => fetch(url).then((res) => res.json())
 
 export default function Giggolo({ game }) {
   const [fetchState, setFetchState] = useState(0)
   const [cards, setCards] = useState([])
-  const [currentCard, setCurrentCard] = useState("")
+  const [currentCard, setCurrentCard] = useState("Moi")
   const [currentCardIndex, setCardIndex] = useState(0)
 
   const { data, error } = useSWR("/api/card", fetcher)
@@ -19,6 +20,13 @@ export default function Giggolo({ game }) {
     makeDeck(neededCards)
     setFetchState(1)
   }
+
+  useEffect(()=> {
+    if(fetchState == 1){
+      console.log(cards)
+      setCurrentCard(cards[0].content)
+    }
+  },[cards])
 
   function makeDeck(cards) {
     const rawDeck = customSizeDeck(cards.length)
@@ -34,15 +42,18 @@ export default function Giggolo({ game }) {
 
   function nextCard() {
     if (currentCardIndex + 1 < cards.length) {
+      if(cards === undefined || currentCardIndex === undefined){
+        
+      }
       console.log(currentCardIndex)
-
+      setCurrentCard(cards[currentCardIndex].content)
       setCardIndex((current) => current + 1)
     } else {
+      console.log("else")
       console.log(currentCardIndex)
       makeDeck(cards)
       setCardIndex(0)
     }
-    setCurrentCard(cards[currentCardIndex].content)
   }
 
   return (

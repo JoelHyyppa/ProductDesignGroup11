@@ -25,7 +25,7 @@ export function makeDeck() {
   return deck
 }
 
-export default function customSizeDeck(size) {
+export function customSizeDeck(size) {
   var deck = []
 
   for (var c = 0; c < size; c++) {
@@ -35,7 +35,7 @@ export default function customSizeDeck(size) {
   return deck
 }
 
-export function scrambledDeck() {
+export default function scrambledDeck() {
   var deck = makeDeck()
   deck = scramble(deck)
   return deck
