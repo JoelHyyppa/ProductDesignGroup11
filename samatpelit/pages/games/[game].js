@@ -77,6 +77,20 @@ export default function GamePage() {
             )
             break
 
+            case "639dd95c3512abf837346a97":
+              setRenderedGame(
+                <div className={styles.gameContainer}>
+                  <Button
+                    className={styles.exitButton}
+                    variant="delete"
+                    onClick={() => resetGameState()}
+                  >
+                    Close Game
+                  </Button>
+                  <Giggolo game={game} />
+                </div>
+              )
+
           default:
             break
         }
