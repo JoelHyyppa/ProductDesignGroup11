@@ -53,3 +53,38 @@
   overflow: hidden;
   text-align: center;
 }
+
+@media (max-width: 600px) {
+  .list {
+    margin: auto;
+    width: 95%;
+  }
+
+  .list li {
+    width: 200px;
+  height: 200px;
+  }
+
+  .list ul {
+    width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    align-items: center;
+  }
+
+  .infobox {
+    width: 198px;
+  height: 40px;
+  top: 159px;
+  }
+
+  .infobox h3 {
+    font-size: 24px;
+  }
+
+  .list li:hover .infobox {
+    height: 90px;
+    width: 194px;
+    top: 107px;
+  }
+  
+}

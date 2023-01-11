@@ -10,3 +10,10 @@
 .kuva {
     z-index: -1;
 }
+
+@media (max-width: 600px) {
+    .kuva {
+        height: 1px;
+        width: 1px;
+    }
+}

@@ -60,7 +60,7 @@ export default function Giggolo({ game }) {
     <div className={styles.container}>
       <h1>Giggolo</h1>
       <div className={styles.card} onClick={() => nextCard()}>
-        {currentCard}
+        <p>{currentCard}</p>
       </div>
     </div>
   )

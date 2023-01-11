@@ -10,6 +10,21 @@
   font-size: 16px;
 }
 
+.variant-navIcon {
+display: inline-block;
+text-align: center;
+padding: 10px 10px;
+color: #7978FF;
+font-size: 28px;
+border: none;
+background-color: color-mix(in srgb,#7978FF 4%, #121212);
+}
+
+.variant-navIcon:hover {
+  cursor: pointer;
+  font-size: 32px;
+}
+
 .variant-secondary {
   display: inline-block;
   background-color: blue;

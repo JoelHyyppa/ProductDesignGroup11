@@ -1,24 +1,28 @@
 .header {
   display: flex;
   justify-content: space-between;
+  background-color: #121212;
   align-items: center;
   font-size: 12px;
   height: 60px;
   padding: 0 30px;
+  box-shadow: inset 0px 8px 8px -4px solid blue;
 }
 
 .header ul {
-  display: flex;
+  display: block;
   align-items: center;
   justify-content: center;
   list-style: none;
 }
-
+.header li {
+  display: inline;
+}
 .header Button {
   margin: 2px;
 }
 
-@media (max-width: 600px) {
+/*@media (max-width: 600px) {
   .header {
     flex-direction: column;
     height: auto;
@@ -30,3 +34,4 @@
     text-align: center;
   }
 }
+*/
