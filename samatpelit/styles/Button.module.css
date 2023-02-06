@@ -12,17 +12,21 @@
 
 .variant-navIcon {
 display: inline-block;
-text-align: center;
-padding: 10px 10px;
+width: 45px;
+height: 45px;
+padding: 8px 8px;
 color: #7978FF;
 font-size: 28px;
 border: none;
-background-color: color-mix(in srgb,#7978FF 4%, #121212);
+border-radius: 10px;
+background-color: #212136;
 }
-
+/*color-mix(in srgb,#7978FF 90%, #121212);*/
 .variant-navIcon:hover {
+  border: 1px solid #7978FF;
+  padding: 6px 6px;
   cursor: pointer;
-  font-size: 32px;
+  font-size: 30px;
 }
 
 .variant-secondary {

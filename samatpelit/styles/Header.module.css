@@ -9,11 +9,19 @@
   box-shadow: inset 0px 8px 8px -4px solid blue;
 }
 
+.slogan {
+  max-height: 30px;
+  overflow: hidden;
+}
+
 .header ul {
   display: block;
+  max-height: 50px;
+  min-width: 150px;
   align-items: center;
   justify-content: center;
   list-style: none;
+  
 }
 .header li {
   display: inline;
